@@ -1,0 +1,76 @@
+.grid-container{
+    display: grid;
+    height: 600px;
+    grid-template-columns:[hd-start] repeat(4,[col-start] 25% [col-end]) [hd-end];
+    grid-template-rows: [row-1-start hd-start] 150px [hd-end row-1-end row-2-start] minmax(200px, auto) [row-2-end row-3-start ft-start] 150px [row-3-end ft-end];
+    /* grid-template-rows: [row-1-start hd-start] fit-content(8rem) [hd-end row-1-end row-2-start] minmax(200px, auto) [row-2-end row-3-start ft-start] 150px [row-3-end ft-end]; */
+
+    /* grid-row-gap: 40px;
+    grid-column-gap: 70px; */
+    grid-gap: 10px;
+
+    grid-template-areas: "header header header header" 
+                         ". . main main"
+                         "footer footer footer footer";
+    /* justify-items: stretch;
+    align-items: center;
+    justify-content: center;
+    align-content: center; */
+    
+    grid-auto-rows: 40rem;
+    grid-auto-columns: 60rem;
+    grid-auto-flow: column;
+    /* auto-fill
+    auto-fit
+    grid-auto-flow: row dense; */
+}
+@media (max-width:40rem){
+
+    .grid-container{
+        display: grid;
+        height: 600px;
+        grid-template-columns:[hd-start] repeat(4,[col-start] 25% [col-end]) [hd-end];
+        grid-template-rows: [row-1-start hd-start] 150px [hd-end row-1-end row-2-start] minmax(200px, auto) [row-2-end row-3-start ft-start] 150px [row-3-end ft-end];
+        grid-gap: 10px;
+    
+        grid-template-areas: "header header header header" 
+                             "main main main main"
+                             "footer footer footer footer";
+        
+    }
+}
+
+
+.el1{
+    background-color: teal;
+    grid-area: footer;
+}
+
+.el2{
+    background-color: pink;
+    /* grid-column-start: 2;
+    grid-column-end:-1; */
+    /* grid-column: 2 / -1; */
+    /* grid-row-start: row-1-start;
+    grid-row-end: span 2; */
+    /* grid-row: row-1-start / span 2; */
+    grid-area: hd;
+    /* z-index: 4 ; */
+
+}
+.el3{
+    background-color: beige;
+    /* grid-row-start: row-1-start;
+    grid-row-end: row-3-end;
+    grid-column-start: 3;
+    grid-column-end: span 3; */
+    grid-area: row-2-start / col-start 2 / row-2-end / col-end 2;
+    justify-self: center;
+    align-self: center;
+    /* grid-area: side; */
+}
+.el4{
+    background-color: mediumaquamarine;
+    grid-area: main;
+
+}
